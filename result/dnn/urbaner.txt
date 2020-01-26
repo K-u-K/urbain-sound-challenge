@@ -1,26 +1,59 @@
 Trainingparameter:
 ValidationSplit: 0.2
-Batchsize: 5
-Epochs: 100
+Batchsize: 20
+Epochs: 250
 Patience for Early Stopping: 20
-Inputdimension: ((40,))
 
 Results:
-Trainingaccuracy: 87.93399863869679
-Testaccuracy: 78.78787878787878
+Trainingaccuracy: 97.0092809499437
+Testaccuracy: 90.9090909090909
+
+Confusion matrix
+[[5 0 0 0 0 0 0 0 0 0]
+ [0 2 0 1 0 0 0 0 0 0]
+ [0 0 5 0 0 0 0 0 0 1]
+ [0 0 0 1 0 0 0 0 0 0]
+ [0 0 0 0 2 0 0 0 0 0]
+ [0 0 0 0 0 2 0 0 0 0]
+ [0 0 0 0 0 0 2 0 0 0]
+ [0 0 0 0 0 0 0 6 0 0]
+ [0 0 0 0 0 0 0 0 1 0]
+ [0 0 1 0 0 0 0 0 0 4]]
+
+Classification report
+                  precision    recall  f1-score   support
+
+ air conditioner      1.000     1.000     1.000         5
+        car horn      1.000     0.667     0.800         3
+children playing      0.833     0.833     0.833         6
+        dog bark      0.500     1.000     0.667         1
+        drilling      1.000     1.000     1.000         2
+   engine idling      1.000     1.000     1.000         2
+        gun shot      1.000     1.000     1.000         2
+      jackhammer      1.000     1.000     1.000         6
+           siren      1.000     1.000     1.000         1
+    street music      0.800     0.800     0.800         5
+
+        accuracy                          0.909        33
+       macro avg      0.913     0.930     0.910        33
+    weighted avg      0.924     0.909     0.911        33
 
 Modelarchitecture:
-Model: "sequential_1"
+Model: "sequential_21"
 _________________________________________________________________
 Layer (type)                 Output Shape              Param #   
 =================================================================
-dense_1 (Dense)              (None, 1024)              41984     
+dense_39 (Dense)             (None, 512)               20992     
 _________________________________________________________________
-dropout_1 (Dropout)          (None, 1024)              0         
+dropout_30 (Dropout)         (None, 512)               0         
 _________________________________________________________________
-dense_2 (Dense)              (None, 10)                10250     
+dense_40 (Dense)             (None, 256)               131328    
+_________________________________________________________________
+dropout_31 (Dropout)         (None, 256)               0         
+_________________________________________________________________
+dense_41 (Dense)             (None, 10)                2570      
 =================================================================
-Total params: 52,234
-Trainable params: 52,234
+Total params: 154,890
+Trainable params: 154,890
 Non-trainable params: 0
 _________________________________________________________________

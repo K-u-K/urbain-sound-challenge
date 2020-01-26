@@ -1,40 +1,63 @@
 Trainingparameter:
 ValidationSplit: 0.2
-Batchsize: 20
+Batchsize: 40
 Epochs: 250
 Patience for Early Stopping: 20
-Inputdimension: ((50, 1))
 
 Results:
-Trainingaccuracy: 73.28979040224883
-Testaccuracy: 75.75757575757575
+Trainingaccuracy: 84.22138203702542
+Testaccuracy: 93.93939393939394
+
+Confusion matrix
+[[5 0 0 0 0 0 0 0 0 0]
+ [0 3 0 0 0 0 0 0 0 0]
+ [0 0 6 0 0 0 0 0 0 0]
+ [0 0 0 1 0 0 0 0 0 0]
+ [0 0 0 0 2 0 0 0 0 0]
+ [0 0 0 0 0 2 0 0 0 0]
+ [0 0 0 0 0 0 1 1 0 0]
+ [0 0 0 0 0 0 0 6 0 0]
+ [0 0 0 0 0 0 0 0 1 0]
+ [0 0 1 0 0 0 0 0 0 4]]
+
+Classification report
+                  precision    recall  f1-score   support
+
+ air conditioner      1.000     1.000     1.000         5
+        car horn      1.000     1.000     1.000         3
+children playing      0.857     1.000     0.923         6
+        dog bark      1.000     1.000     1.000         1
+        drilling      1.000     1.000     1.000         2
+   engine idling      1.000     1.000     1.000         2
+        gun shot      1.000     0.500     0.667         2
+      jackhammer      0.857     1.000     0.923         6
+           siren      1.000     1.000     1.000         1
+    street music      1.000     0.800     0.889         5
+
+        accuracy                          0.939        33
+       macro avg      0.971     0.930     0.940        33
+    weighted avg      0.948     0.939     0.935        33
 
 Modelarchitecture:
-Model: "sequential_40"
+Model: "sequential_5"
 _________________________________________________________________
 Layer (type)                 Output Shape              Param #   
 =================================================================
-conv1d_63 (Conv1D)           (None, 46, 1)             6         
+conv1d_5 (Conv1D)            (None, 38, 1)             4         
 _________________________________________________________________
-leaky_re_lu_63 (LeakyReLU)   (None, 46, 1)             0         
+leaky_re_lu_4 (LeakyReLU)    (None, 38, 1)             0         
 _________________________________________________________________
-batch_normalization_63 (Batc (None, 46, 1)             4         
+batch_normalization_4 (Batch (None, 38, 1)             4         
 _________________________________________________________________
-conv1d_64 (Conv1D)           (None, 42, 1)             6         
+flatten_4 (Flatten)          (None, 38)                0         
 _________________________________________________________________
-leaky_re_lu_64 (LeakyReLU)   (None, 42, 1)             0         
+dropout_4 (Dropout)          (None, 38)                0         
 _________________________________________________________________
-batch_normalization_64 (Batc (None, 42, 1)             4         
+dense_6 (Dense)              (None, 128)               4992      
 _________________________________________________________________
-flatten_32 (Flatten)         (None, 42)                0         
-_________________________________________________________________
-dropout_42 (Dropout)         (None, 42)                0         
-_________________________________________________________________
-dense_68 (Dense)             (None, 256)               11008     
-_________________________________________________________________
-dense_69 (Dense)             (None, 10)                2570      
+dense_7 (Dense)              (None, 10)                1290      
 =================================================================
-Total params: 13,598
-Trainable params: 13,594
-Non-trainable params: 4
+Total params: 6,290
+Trainable params: 6,288
+Non-trainable params: 2
 _________________________________________________________________
